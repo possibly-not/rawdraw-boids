@@ -14,7 +14,7 @@ all : boids
 MINGW32:=/usr/bin/i686-w64-mingw32-
 
 boids : boids.c
-	gcc -o $@ $^ -lX11 -lm -lpthread -lXinerama -lXext -lGL -g -DCNFGRASTERIZER -Wall
+	gcc -o $@ $^ -lX11 -lm -lpthread -lXinerama -lXext -lGL -g -DCNFGRASTERIZER
 
 
 clean : 

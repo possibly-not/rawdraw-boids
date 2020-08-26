@@ -1,27 +1,41 @@
 # rawdraw-boids
- this is an quick and dirty implementation of the boids algorithm as first developed by Craig Reynolds
+ this is an quick and dirty implementation of the boids algorithm using cnlohr's rawdraw
+
+
 
 there are 3 main rule that guides every boid
 >seperation
 >alignment
 >cohesion
 
-eventually goal seeking with be adde for your mouse cursor
+eventually goal seeking with be added for your mouse cursor but lets not get ahead of ourselves
+
+whats working now
+>basic window with fps counter, window size and 
+>can draw regular polygons 
+>can draw a bird-ish shape 
+>bird struct
+
+CNFGDrawRegPoly(short sides, short radius) is now a thing inside rawdraw, but is never used
+next
+>rotation of bird shape
+>make birds start with nice spacing
+>get bird "moving" 
+>avoid crashing into edge
+>bird sensing other birds
+>bird sense with cone of vision (display this) 
+>bird collision
+>add sliders
+>seperation
+>alignment
+>cohesion
 
 
-right now
->engine to time step one 
->one boid has, a 2d vector and an x/y
-            ^direction+magnitude
+Other todos
+>clean up variable definitions
+>reoder functions  
+>remove ununsed code
 
+maybe
+>make engine steps not tied to frame rate
 
-
-do
->open window
->triangle (cone of vision too)
->time step
->moves one step on vector based on magnitude (should just go up)
->multiple boids (?)
->search for each other (can be optimised via squares but whatever)
->turning reduces magnitude
->
