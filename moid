@@ -1,0 +1,6 @@
+#!/bin/bash
+# moid = make + boids
+clear
+make clean
+make
+./boids

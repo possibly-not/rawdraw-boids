@@ -18,9 +18,12 @@ whats working now
 
 CNFGDrawRegPoly(short sides, short radius) is now a thing inside rawdraw, but is never used
 next
->rotation of bird shape  
+>rotation of bird shape  DONE
 >make birds start with nice spacing  
->get bird "moving"   
+>point towards mouse
+>smoothly point towards mouse
+>get bird "moving" towards mouse
+>get birds moving alone, randomly in the void
 >avoid crashing into edge  
 >bird sensing other birds  
 >bird sense with cone of vision (display this)   
@@ -32,6 +35,7 @@ next
 
 
 Other todos  
+>limit window size after open/start
 >clean up variable definitions  
 >reoder functions    
 >remove ununsed code  
@@ -39,3 +43,8 @@ Other todos
 maybe  
 >make engine steps not tied to frame rate  
 
+
+
+>no of boids based on resolution
+
+>gol
