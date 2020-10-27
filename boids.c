@@ -17,8 +17,8 @@
 //#include "boids.h"
 
 #define PI 3.14159265
-#define windowW 1920//1024
-#define windowH 1008//576
+#define windowW 1920    //1024
+#define windowH 1008    //576
 #define numberofBoids 100
 unsigned frames = 0;
 unsigned long iframeno = 0;
@@ -26,8 +26,11 @@ unsigned long iframeno = 0;
 int mouseX = 0; 
 int mouseY = 0;
 int mouseMask = 0;
-int precision = 1;
-double birbLayout[5][2] = {{0,-1},{-0.75,1},{0,0.25},{0.75,1},{0,-1}};
+int precision = 1; // i forgot what this is used for in handlebutton()
+
+// this really should be integers? i.e times alll by 100 and call it a day
+// okay but 0.75 and 0.25 can be stored perfectly as floats so *shrug*
+double birbLayout[5][2] = {{0,-1},{-0.75,1},{0,0.25},{0.75,1},{0,-1}}; 
 //double birbLayout[5][2] = {{0,1},{-0.75,-1},{0,-0.25},{0.75,-1},{0,1}};
 
 
@@ -102,6 +105,8 @@ double returnRotate(short x1, short y1, short x2, short y2){
 // return distance between two points
 double returnDistance(short x1, short y1, short x2, short y2){
     double distance = 0; 
+    // Pythagorean theorem 
+    // works out hyptotenous
     distance = sqrt(pow(x2-x1,2) + pow(y2-y1,2));
     return distance;
 }
@@ -114,6 +119,7 @@ int returntoComfort(short x1, short y1, short x2, short y2){
 
 }
 
+// returns if it is too close to the edges based on comfortsize
 int returnEdgeComfort(short x1, short y1, short w, short h, int comfortSize){
     // if uncomfortable
     if(x1-comfortSize < 0 || y1-comfortSize < 0 || x1+comfortSize > w || y1+comfortSize > h){
@@ -124,9 +130,11 @@ int returnEdgeComfort(short x1, short y1, short w, short h, int comfortSize){
 
 double mixRotation(double currentRotation, double rotateCohesion, double rotateAlignment, double rotateSeperation){
 
-
-    return (double)(currentRotation + rotateCohesion );
+    // currently "disabled"
+    return (double)(currentRotation );
 }
+
+
 void drawRegPoly( int x, int y, int sides, int radius){
 
     double seperation = (1/(double)sides)*(PI/0.5f);
