@@ -202,7 +202,7 @@ void initBirbs(int w, int h){
     double birbSpacingH = (h - (2*gridPadding))/numberofBoids;
 
 
-    // could be compressed into one loop but thats for later
+    // places boids randomly
     for(int i = 0; i < numberofBoids; i++){
         
         // place boids left side + nicely spaced
@@ -262,7 +262,7 @@ void birbStep(short w, short h){
         int totalY = 0 ;
         int totalLocal = 0;
         
-        // final values that will make its way into the rotation
+        // init final values that will make its way into the rotation
         double rotateCohesion = 0.0;
         double rotateAlignment = 0.0;
         double rotateSeperation = 0.0;
@@ -280,10 +280,11 @@ void birbStep(short w, short h){
         drawRegPoly(BoidStruct[i].x,BoidStruct[i].y, 35, considerationSize);
         // gather numbers for rules in local area 
         for(int z = 0; z < numberofBoids; z++){
+            // if not current boid
             if(z != i){
                 // if in local space
                 if(returnDistance(BoidStruct[i].x, BoidStruct[i].y, BoidStruct[z].x, BoidStruct[z].y) < considerationSize){ 
-                    // points to a boid in it's local area
+                    // draw line to a boid (shows what a boid is considering)
                     CNFGColor( 0xffaaaa);
                     CNFGTackSegment(BoidStruct[i].x, BoidStruct[i].y, BoidStruct[z].x, BoidStruct[z].y);
 
@@ -457,12 +458,14 @@ int main()
 
         // okay lets do some birbs 
         birbStep(w, h);
+        // and draw the birbs
         for(int i = 0; i < numberofBoids; i++) drawBirb(i);
-        CNFGColor( 0xffffff );
+        
 
         // all base stuff finished, drawing the rest of the ui elements
 
         // top left message 
+        CNFGColor( 0xffffff );
         CNFGDrawTextbox(paddingAmount +10 ,20,"oh hello there", 4);
 
 
